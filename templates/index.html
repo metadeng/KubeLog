@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kubelog</title>
+    <link rel="stylesheet" href="{% static 'layui/css/layui.css' %}">
+    <script src="{% static 'layui/layui.js' %}"></script>
+</head>
+<body>
+<div class="layui-box">
+    <div class="layui-header" style="float: none">
+
+        <ul class="layui-nav layui-bg-cyan">
+            <li class="layui-nav-item">
+                <a href="">KubeLog<span class="layui-badge">hot</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="layui-container" style="padding-top: 20px">
+
+        <div class="layui-form-item layui-col-md6">
+            <label class="layui-form-label">Namespace</label>
+            <div class="layui-input-block">
+                <select name="namespace" lay-verify="required">
+                    <option value="0">dev</option>
+                    <option value="1">citest</option>
+                    <option value="2">zbrd</option>
+                    <option value="3">gld</option>
+                    <option value="4">gldexp</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item layui-col-md6">
+            <label class="layui-form-label">Pod</label>
+            <div class="layui-input-block">
+                <select name="pod" lay-verify="required">
+                    <option value=""></option>
+                    <option value="0">pod1</option>
+                    <option value="1">pod2</option>
+                    <option value="2">pod3</option>
+                    <option value="3">pod4</option>
+                    <option value="4">pod5</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-footer" style="float: unset">
+
+    </div>
+</div>
+<script>
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+</body>
+</html>
